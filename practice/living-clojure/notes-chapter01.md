@@ -24,12 +24,12 @@ lein command line did not work in Git Bash, so I use a normal window.
 * performance tuned for first, rest, cons
 * '(1 2 3) == (list 1 2 3) == (cons 1 (cons 2 ( cons 3 nil )))
 
-### Vectors
+#### Vectors
 * Square brackets are used to define vectors
 * function { first, rest, nth, last }
 * performance tuned for nth
 
-### Collections in general
+#### Collections in general
 * immutable: the value of collection does not change.
 * persistent: smart creation of new elements, use of structural sharing
 * functions { first, rest, last, count, conj }
@@ -38,7 +38,7 @@ lein command line did not work in Git Bash, so I use a normal window.
     * for vectors, they are added to the end
 * conj is short for conjoin
 
-### Maps
+#### Maps
 * Curly braces are used to define maps
 * functions { get, keys, vals, assoc, dissoc, merge }
 * Idiomatic to use comma (,) to separate pairs for readability, not required.
@@ -47,7 +47,7 @@ lein command line did not work in Git Bash, so I use a normal window.
 * keywords can be used as name of function to get value without using `get` function. This is the more idiomatic way, (:a { :a 1 :b 2 })
 * merge is similar to extend in JS, it will go from left to right, overwriting matching keys with the rightmost values.
 
-### Sets
+#### Sets
 * Pound and open curly brace are used to start a set, close curly brace to end it.
 * Duplicate keys throw exceptions
 * clojure.set namespace for { union, difference, intersection }
@@ -58,7 +58,7 @@ lein command line did not work in Git Bash, so I use a normal window.
 * keyword as function name will also work
 * disj is used to remove an item from a set
 
-### Type review
+#### Type review
 * Strings
 * Integers
 * Ratios
@@ -67,13 +67,33 @@ lein command line did not work in Git Bash, so I use a normal window.
 * Characters
 * Booleans
 
-### Lists are the heart of Clojure
+#### Lists are the heart of Clojure
 * Code is data, all Clojure code is made of lists of data
 
-### Symbols to bind (functional equivalent of something like variables)
+#### Symbols to bind (functional equivalent of something like variables)
 * `def` is used to create a var object for a symbol `name`
     (def <name> <value>)
 * vars use namespaces
 * fully qualified names include the namespace followed by a forward slash, then the name of the var.
 * `let` is used for a vector form way to locally define a var/symbol. Expects pairs of symbols/values. Creates temporary binding
 * "What happens in a let, stays in a let"
+
+#### Creating your own functions
+* `defn` creates vars for functions
+* `defn` takes the following parameters
+    * name of the function
+    * a vector of parameters
+    * the body of the function
+* `fn` is used to define anonymous functions (like lambda in scheme)
+* (def f (fn [] 1)) == (defn f [] 1)
+* There is a shorthand form, (#(str "blah" "!" " - " %1 %2))
+
+#### Keep Your Symbols Organized in Namespaces
+* `ns` is used to create and switch to a new namespace
+* `*ns*` will return current namespace (The asterisks are called `earmuffs`)
+* `require` is used to load other namespaces
+    (require 'namespace')
+    (require '[namespace :as af]')
+    (ns wonderland
+        (:require [alice.favfoods :as af]))
+* Forward slash is used to separate namespace from symbols
