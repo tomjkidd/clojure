@@ -1,23 +1,23 @@
 (ns training-plan.core
   (:gen-class)
-  (:require [training-plan.week1.day1 :as day1]))
+  (:use clojure.test)
+  (:require [training-plan.week1.day1 :as day1]
+            [training-plan.week1.day2 :as day2]))
 
 (defn all-tests-pass []
   (every? (fn [x] (= x true)) 
           [(day1/tests-pass)]))
-
-(let [{a :a, b :b, c :c, :as m :or {a 2 b 3}} {:a 5 :c 6}]
-  [a b c m])
-
-(let [{:keys [fred]} {:fred "f"}]
-  fred)
 
 (def test-address
   {:street-address "123 Test Lane"
    :city "Testerville"
    :state "TX"})
 
-((fn [[a b] c] (let [name (str a " " b) {:keys [street-address city state]} test-address] (interpose ", " [name street-address city state]))) ["Test" "Testerson"] test-address)
+(defn run-unit-tests
+  "Run the unit tests created for training."
+  []
+  (run-tests 'training-plan.week1.day1
+             'training-plan.week1.day2))
 
 (defn -main
   "I don't do a whole lot ... yet."
