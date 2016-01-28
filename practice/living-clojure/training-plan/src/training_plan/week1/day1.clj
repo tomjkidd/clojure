@@ -1,4 +1,5 @@
-(ns training-plan.week1.day1)
+(ns training-plan.week1.day1
+  (:require [clojure.set]))
 
 ;; [Google Group](http://bit.ly/4clojure_group)
 
