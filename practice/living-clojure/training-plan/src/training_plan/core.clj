@@ -13,7 +13,8 @@
             [training-plan.week3.day1]
             [training-plan.week3.day2]
             [training-plan.week3.day3]
-            [training-plan.week3.day4])
+            [training-plan.week3.day4]
+            [training-plan.week3.day5])
   (:gen-class))
 
 (defn run-unit-tests
@@ -32,7 +33,8 @@
              'training-plan.week3.day1
              'training-plan.week3.day2
              'training-plan.week3.day3
-             'training-plan.week3.day4))
+             'training-plan.week3.day4
+             'training-plan.week3.day5))
 
 (defn -main
   "I don't do a whole lot ... yet."
