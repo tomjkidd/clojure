@@ -13,3 +13,5 @@
 [Week5/Day1](https://github.com/tomjkidd/wonderland-clojure-katas/commit/0dc72c1feda2597e8f4b5112c4a5af5149c072d4)
 
 [Week5/Day2](https://github.com/tomjkidd/wonderland-clojure-katas/commit/be54f89ef4fb20f5cde6ef1a385926ac7f0179cf)
+
+[Week5/Day3](https://github.com/tomjkidd/wonderland-clojure-katas/commit/733d8dad103070fd8029128c3dc52da7f280674e)
