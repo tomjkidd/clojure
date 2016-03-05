@@ -27,3 +27,9 @@
 [Week6/Day3](https://github.com/tomjkidd/wonderland-clojure-katas/commit/0619378ba48485f5a9e42f7da0bd3adae5eeb59d)
 
 [Week6/Day4](https://github.com/tomjkidd/wonderland-clojure-katas/commit/1f8a7894e43538854616804f65e280b9b1ef6412)
+
+[Week6/Day5 3-card Logic](https://github.com/tomjkidd/wonderland-clojure-katas/commit/05e3afcecda734ce13470808f77ef6be97fbcd7c)
+
+[Week6/Day5 Logic Refactor](https://github.com/tomjkidd/wonderland-clojure-katas/commit/ecf856cd4c4293abbcbecd5396963a556518f12d)
+
+[Week6/Day5 play-round Refactor](https://github.com/tomjkidd/wonderland-clojure-katas/commit/f8dd750ddb101ea882d7cea9cc892d27c9490b0f)
