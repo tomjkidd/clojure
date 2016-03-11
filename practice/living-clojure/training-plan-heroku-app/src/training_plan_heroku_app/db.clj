@@ -48,3 +48,10 @@
     (if (= 1 delete-count)
       to-delete
       nil)))
+
+(defn clear-location!
+  "Removes all locations from the location table, and resets the AUTOINCREMENT index to 0"
+  []
+  ;; TODO: Put this in a transaction!
+  (sql/delete-locations!)
+  (sql/set-seq! {:seq 0 :name "location"}))

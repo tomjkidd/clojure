@@ -30,3 +30,13 @@ WHERE id = :id
 -- Remove a location from the list of locations
 DELETE FROM location
 WHERE id = :id
+
+--name: delete-locations!
+-- Remove all locations from the list of locations
+DELETE FROM location
+
+--name: set-seq!
+-- Update sqlite_sequence table to allow sqlite autoincrement state to be changed.
+UPDATE sqlite_sequence
+SET seq = :seq
+WHERE name = :name

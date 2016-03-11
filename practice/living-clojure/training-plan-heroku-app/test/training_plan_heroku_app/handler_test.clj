@@ -3,7 +3,13 @@
             [ring.mock.request :as mock]
             [cheshire.core :refer :all]
             [training-plan-heroku-app.handler :refer :all]
-            [training-plan-heroku-app.db :refer [find-location-by-name]]))
+            [training-plan-heroku-app.db :refer :all]))
+
+(defn name->id
+  [name]
+  (-> {:name name}
+      (find-location-by-name)
+      (:id)))
 
 (defn mock-json
   "Convenience method to create JSON request mocks"
@@ -18,6 +24,18 @@
   "Convenience method to get data from a JSend reponse map"
   [response]
   (:data (parse-string (:body response) true)))
+
+;; https://clojure.github.io/clojure/clojure.test-api.html
+;; TODO: Make it so that a test database is used!
+(defn with-clean-database
+  "A test fixture that will put the database into a known state."
+  [f]
+  (clear-location!)
+  (insert-location! {:name "Mercure"})
+  (f)
+  (clear-location!))
+
+(use-fixtures :each with-clean-database)
 
 (deftest test-app
   (testing "main route"
@@ -36,7 +54,8 @@
       (is (>= 1 (count data)))))
 
   (testing "specific location route"
-    (let [response (app (mock-json :get "/location/1" nil))
+    (let [id (name->id "Mercure")
+          response (app (mock-json :get (str "/location/" id) nil))
           data (parse-data response)]
       (is (= "Mercure" (:name data)))))
 
@@ -54,9 +73,7 @@
       (is (not (nil? (:id data))))))
 
   (testing "remove specific location route"
-    (let [id (-> {:name "Paddington"}
-                 (find-location-by-name)
-                 (:id))
+    (let [id (name->id "Paddington")
           response (app (mock-json :delete (str "/location/" id) nil))
           data (parse-data response)]
       (is (= (:status response) 200))
