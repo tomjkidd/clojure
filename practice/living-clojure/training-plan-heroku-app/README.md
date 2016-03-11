@@ -16,6 +16,21 @@ To start a web server for the application, run:
 
 Currently, the unit tests are not in their own configuration.
 
+## Commands
+
+### Rhino repl
+
+    lein trampoline cljsbuild repl-rhino
+
+### Browser connected repl
+
+    lein trampoline cljsbuild repl-listen
+
+### Build and watch cljs files
+
+    lein cljsbuild auto
+
+
 ## License
 
 Copyright © 2016 Tom Kidd
