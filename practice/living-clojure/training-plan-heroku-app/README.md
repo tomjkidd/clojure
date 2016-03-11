@@ -16,6 +16,8 @@ To start a web server for the application, run:
 
 Currently, the unit tests are not in their own configuration.
 
+Deployed the first version of the [app](https://evening-shelf-37877.herokuapp.com/index.html).
+
 ## Commands
 
 ### Rhino repl
